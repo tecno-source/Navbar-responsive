@@ -9,6 +9,13 @@ body {
   background-color: darkgray;
 }
 
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*estilos del header y el menu responsivo*/
 header {
   position: fixed;
@@ -19,7 +26,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(#ffffff, 90%, #ffffff3d);
+  background: linear-gradient(#970808, 90%, #ffffff3d);
 }
 
 header p {
@@ -134,9 +141,7 @@ header nav {
 
 /*seccion main*/
 
-section {
-  height: 100vh;
-}
+
 
 .home {
   font-family: "Poppins", serif;
@@ -152,6 +157,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   gap: 0.7rem;
 }
 
@@ -251,5 +257,21 @@ h3 {
 
   .topnav a {
     color: #344563;
+  }
+
+  .portfolio-link {
+    margin-top: 0;
+  }
+
+  html {
+    font-size: 20px;
+  }
+
+  .home {
+    background-image: url(./img/HeaderBg.svg);
+    background-size: cover;
+    background-position: center;
+    padding: 25vh;
+    border-bottom-left-radius: 6rem;
   }
 }

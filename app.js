@@ -16,7 +16,7 @@ function myFunction() {
   }
 }
 
-/* Add active class to the current button (highlight it) */
+/* Agregar clase activa al botón actual (resaltarlo) */
 var header = document.getElementById("myTopnav");
 var btns = header.getElementsByClassName("nav-link");
 for (var i = 0; i < btns.length; i++) {
@@ -26,15 +26,27 @@ for (var i = 0; i < btns.length; i++) {
       current[0].className = current[0].className.replace(" active", "");
     }
     this.className += " active";
+    // cierra el menu mobile cuando se clikea un link
+    var x = document.getElementById("myTopnav");
     var h3 = document.querySelector("header h3");
     var navbutton = document.querySelector(".topnav .icon");
+    x.classList.remove('responsive');
     h3.style.display = "block";
     navbutton.classList.add('fa-bars');
     navbutton.classList.remove('fa-xmark');
   });
 }
 
-// Ensure the links have the 'nav-link' class
+// Asegurarse de que los enlaces cierren el menu'
 document.querySelectorAll('.topnav .nav-links a').forEach(link => {
   link.classList.add('nav-link');
+  link.addEventListener("click", function() {
+    var x = document.getElementById("myTopnav");
+    var h3 = document.querySelector("header h3");
+    var navbutton = document.querySelector(".topnav .icon");
+    x.classList.remove('responsive');
+    h3.style.display = "block";
+    navbutton.classList.add('fa-bars');
+    navbutton.classList.remove('fa-xmark');
+  });
 });
