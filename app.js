@@ -50,3 +50,50 @@ document.querySelectorAll('.topnav .nav-links a').forEach(link => {
     navbutton.classList.remove('fa-xmark');
   });
 });
+
+// validacion de email antes de envio de formulario
+
+let errorMessage = document.querySelector('.error-message');
+let form = document.getElementById('contact');
+let email = document.getElementById('email');
+let emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+
+form.addEventListener('submit', (e) => {
+  if (!emailRegex.test(email.value)) {
+    e.preventDefault();
+    errorMessage.style.display = 'block';
+    email.style.border = '#dd5353 2px solid';
+  } else {
+    errorMessage.style.display = 'none';
+    email.style.border = '';
+  }
+});
+// local storage
+
+let localData = {
+  name: '',
+  email: '',
+  message: '',
+};
+
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('textform');
+
+function dataLocalStore() {
+  localStorage.setItem('name', JSON.stringify(localData));
+}
+
+form.addEventListener('input', () => {
+  localData.name = nameInput.value;
+  localData.email = emailInput.value;
+  localData.message = messageInput.value;
+  dataLocalStore();
+});
+
+if (JSON.parse(localStorage.getItem('name')) !== null) {
+  localData = JSON.parse(localStorage.getItem('name'));
+  nameInput.setAttribute('value', localData.name);
+  emailInput.setAttribute('value', localData.email);
+  messageInput.value = localData.message;
+}
