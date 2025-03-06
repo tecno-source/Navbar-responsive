@@ -97,3 +97,18 @@ if (JSON.parse(localStorage.getItem('name')) !== null) {
   emailInput.setAttribute('value', localData.email);
   messageInput.value = localData.message;
 }
+
+
+// document.getElementById('myForm').onsubmit = function(e) {
+//   e.preventDefault();
+//   var form = e.target;
+//   var formData = new FormData(form);
+//   var xhr = new XMLHttpRequest();
+//   xhr.open(form.method, form.action, true);
+//   xhr.onload = function() {
+//       if (xhr.status === 200) {
+//           window.open('https://formspree.io/thank-you-page', '_blank');
+//       }
+//   };
+//   xhr.send(formData);
+// };
